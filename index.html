@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f0e4">
+  <meta name="description" content="A little something made just for Yassmine.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>For Yassmine</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: loaded from Google Fonts. If offline, elegant system fonts take over. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-view="landing" data-tab="letter">
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <!-- Loading screen -->
+  <div id="loader" class="loader" aria-hidden="true"><span>Y</span></div>
+
+  <!-- Landing -->
+  <section id="landing" class="landing" aria-labelledby="landing-title">
+    <div class="landing__ring" aria-hidden="true"></div>
+    <div class="landing__inner">
+      <svg class="ornament rise" style="--d:.1s" width="46" height="14" viewBox="0 0 46 14" aria-hidden="true">
+        <path d="M0 7h17M29 7h17" stroke="currentColor" stroke-width="1" opacity=".6"/>
+        <path d="M23 1l5 6-5 6-5-6z" fill="currentColor"/>
+      </svg>
+      <h1 id="landing-title" class="landing__title rise" style="--d:.25s">
+        Happy Birthday,<br><em>Yassmine!</em>
+      </h1>
+      <p class="landing__sub rise" style="--d:.45s">A little something made just for you.</p>
+      <button id="beginBtn" class="btn btn-primary rise" style="--d:.7s" type="button">
+        Open your gift
+      </button>
+    </div>
+  </section>
+
+  <!-- App -->
+  <div id="app" class="app" hidden>
+
+    <main id="stage" class="stage">
+
+      <!-- TAB 1: THE LETTER -->
+      <section id="panel-letter" class="panel" role="tabpanel" aria-labelledby="tab-letter">
+        <header class="panel__head">
+          <p class="eyebrow">A Letter 💌</p>
+        </header>
+
+        <div id="envStage" class="env-stage">
+          <div id="envelope" class="envelope" aria-hidden="true">
+            <div class="env-back"></div>
+            <div class="env-paper"></div>
+            <div class="env-front"></div>
+            <svg class="env-lines" viewBox="0 0 300 200" preserveAspectRatio="none">
+              <polyline points="0,200 150,112" fill="none" stroke="rgba(109,31,47,.14)" stroke-width="1"/>
+              <polyline points="300,200 150,112" fill="none" stroke="rgba(109,31,47,.14)" stroke-width="1"/>
+              <polyline points="0,0 150,112 300,0" fill="none" stroke="rgba(184,147,74,.55)" stroke-width="1"/>
+            </svg>
+            <div class="env-flap"></div>
+            <div class="env-seal"><span>Y</span></div>
+          </div>
+          <button id="openBtn" class="btn btn-primary" type="button">Open your letter</button>
+        </div>
+
+        <article id="letter" class="letter" hidden aria-label="A letter for Yassmine">
+          <svg class="letter__ornament" width="46" height="14" viewBox="0 0 46 14" aria-hidden="true">
+            <path d="M0 7h17M29 7h17" stroke="currentColor" stroke-width="1" opacity=".6"/>
+            <path d="M23 1l5 6-5 6-5-6z" fill="currentColor"/>
+          </svg>
+          <p class="letter__greeting" style="--i:0">Hi, Yassmine!</p>
+          <p style="--i:1">I promised you I’d get you a gift for your birthday. I don’t know if you still remember, but unfortunately, I don’t have the money for one. So, instead, here’s my gift: this little website I made for you.</p>
+          <p style="--i:2">First of all, I’m sorry for blocking you. It was simply my way of resisting the urge to text you.</p>
+          <p style="--i:3">Even if ten years pass, I think I’ll still remember Yassmine as someone who was incredibly kind and full of joy.</p>
+          <p style="--i:4">I’m just here to tell you: stay the way you are. Keep going to the gym, have fun, enjoy life, and never lose the things that make you who you are. That’s the real you, and I hope you never lose it.</p>
+          <p style="--i:5">And when life gets difficult, don’t ignore it or run away from your problems. Face them and keep trying to make things better. You’ve got this.</p>
+          <p style="--i:6">I also included a song you already know. I just wanted to share it because every time I hear it, I remember you.</p>
+          <p style="--i:7">And finally, a movie recommendation. Please, please watch it until the very end. Trust me, the ending is insane.</p>
+          <p style="--i:8">Happy Birthday, Yassmine. I hope life treats you kindly.</p>
+          <p style="--i:9">OMG, I almost forgot! Congratulations on your graduation! 🥳</p>
+        </article>
+      </section>
+
+      <!-- TAB 2: THE SONG -->
+      <section id="panel-song" class="panel" role="tabpanel" aria-labelledby="tab-song" hidden>
+        <header class="panel__head">
+          <p class="eyebrow">A Song 🎵</p>
+        </header>
+
+        <blockquote class="song-intro">“A song you already know. Every time I hear it, I remember you.”</blockquote>
+
+        <div class="player">
+          <div class="player__art">
+            <img src="assets/images/song-artwork.svg" alt="Abstract burgundy and gold artwork" width="400" height="400">
+            <span class="note n1" aria-hidden="true">♪</span>
+            <span class="note n2" aria-hidden="true">♫</span>
+            <span class="note n3" aria-hidden="true">♪</span>
+            <span class="note n4" aria-hidden="true">♫</span>
+          </div>
+          <div class="player__info">
+            <p class="player__tag">Lyric Video</p>
+            <h2 class="player__title">Lovesong</h2>
+            <p class="player__artist">Adele</p>
+            <a class="btn btn-primary" id="songLink" href="https://www.youtube.com/results?search_query=Adele+Lovesong+Lyric+Video" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+              Listen on YouTube
+            </a>
+            <p class="fineprint">Opens YouTube in a new tab.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: THE MOVIE -->
+      <section id="panel-movie" class="panel" role="tabpanel" aria-labelledby="tab-movie" hidden>
+        <header class="panel__head">
+          <p class="eyebrow">A Movie Suggestion 🎬</p>
+        </header>
+
+        <div class="movie">
+          <div class="poster">
+            <img id="posterImg" src="assets/images/poster-fallback.svg" alt="Death Proof (2007) poster" width="400" height="600">
+          </div>
+
+          <div class="movie__body">
+            <h2 class="movie__title">Death Proof</h2>
+
+            <dl class="facts">
+              <div><dt>Year</dt><dd>2007</dd></div>
+              <div><dt>Director</dt><dd>Quentin Tarantino</dd></div>
+              <div><dt>Genre</dt><dd>Action · Thriller</dd></div>
+              <div><dt>IMDb</dt><dd>★ 7.0 / 10</dd></div>
+            </dl>
+
+            <p class="movie__desc">Long Texas roads, sharp dialogue, real stunt work, and a stuntman with a very particular car. A stylish, slow-burning thriller with a grindhouse heart.</p>
+
+            <blockquote class="movie__note">“Please, please watch it until the very end. Trust me, the ending is insane.”</blockquote>
+
+            <a class="btn btn-primary btn-gold" id="trailerLink" href="https://www.youtube.com/results?search_query=Death+Proof+2007+official+trailer" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+              Watch Trailer
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <nav id="nav" class="nav" role="tablist" aria-label="Sections" style="--idx:0">
+      <span class="nav__indicator" aria-hidden="true"></span>
+      <button class="nav__btn" id="tab-letter" role="tab" type="button" data-tab="letter" aria-controls="panel-letter" aria-selected="true"><span aria-hidden="true">💌</span> Letter</button>
+      <button class="nav__btn" id="tab-song" role="tab" type="button" data-tab="song" aria-controls="panel-song" aria-selected="false" tabindex="-1"><span aria-hidden="true">🎵</span> Song</button>
+      <button class="nav__btn" id="tab-movie" role="tab" type="button" data-tab="movie" aria-controls="panel-movie" aria-selected="false" tabindex="-1"><span aria-hidden="true">🎬</span> Movie</button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
